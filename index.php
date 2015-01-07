@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+    <title>AJ Sports Club Spinning</title>
     <meta charset="utf-8">
     <meta name="description" content="AJ SPORTS CLUB OFFICAL PAGE">
     <meta name="author" content="Radislav Splichal">
