@@ -22,7 +22,7 @@
                 <?php include 'nav.php'; ?>
 
             </nav>
-
+ </div>
             <article>
                 <!-- The Page content and its SQL logic-->
                 <?php include 'article.html'; ?>
@@ -38,7 +38,7 @@
 
         </footer>
 
-    </div>
+   
 
 </body>
 

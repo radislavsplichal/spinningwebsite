@@ -1,8 +1,8 @@
 <html>
     <body>
         <div class="masthead clearfix">
-            <div class="inner">
-                <h3 class="masthead-brand">Cover</h3>
+            <div class="inner cover">
+
                 <nav>
                     <button type="button" class="btn btn-primary btn-lg">Large button</button>
                     <button type="button" class="btn btn-default btn-lg">Large button</button>
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        </div>
+        
     </body>
 </html>
 
