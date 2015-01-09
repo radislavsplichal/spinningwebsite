@@ -4,11 +4,8 @@
             <div class="inner">
                 <h3 class="masthead-brand">Cover</h3>
                 <nav>
-                    <ul class="nav masthead-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
+                    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                    <button type="button" class="btn btn-default btn-lg">Large button</button>
                 </nav>
             </div>
         </div>

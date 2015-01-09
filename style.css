@@ -1,5 +1,5 @@
 body {
-    height: 100%;
+    background-color: #000;
     
 }
 div.site-wrapper {
@@ -7,13 +7,11 @@ div.site-wrapper {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    
+    padding-top: 0;
     height: 1000px;
     width: 100%;
 }
-/*
- * Globals
- */
+
 
 /* Links */
 a,
@@ -174,7 +172,6 @@ body {
     width: 700px;
   }
 }
-
 
 
 /*
