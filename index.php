@@ -11,34 +11,42 @@
     <style>
         <?php include 'style.css'; ?>
     </style>
-    <div class="site-wrapper">
+    <!-- Navigation and MENU-->
+    <nav class="navbar navbar-default">
+
+        <?php include 'nav.html'; ?>
+    </nav>
+
+    <div id="headerimg">
+
+        <!--Text over Header Image-->
+        <?php include 'cover.php'; ?>
+
+
+
         <header>
             <!-- The Logo and the Header Image-->
             <?php include 'header.html'; ?>
         </header>
         <section>
-            <nav>
-                <!-- Navigation and MENU-->
-                <?php include 'nav.php'; ?>
 
-            </nav>
- </div>
-            <article>
-                <!-- The Page content and its SQL logic-->
-                <?php include 'article.html'; ?>
+    </div>
+    <article>
+        <!-- The Page content and its SQL logic-->
+        <?php include 'article.html'; ?>
 
-            </article>
+    </article>
 
 
         </section>
-        <footer>
-            <p>Aj Sports Club 2015 © / Kesha Engine / Bootstrap CSS&JS / Build 0004 /</p>
+    <footer>
+        <p>Aj Sports Club 2015 © / Kesha Engine / Bootstrap CSS&JS / Build 0004 /</p>
 
 
 
-        </footer>
+    </footer>
 
-   
+
 
 </body>
 
