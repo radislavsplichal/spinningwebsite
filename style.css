@@ -51,7 +51,10 @@ a:focus,
 a:hover {
   color: #fff;
 }
-
+article {
+    margin-left: 200px;
+    margin-right: 200px;
+}
 div#cover {
     height: 500px;
     padding-top: 150px;
@@ -61,6 +64,15 @@ div#cover h1 {
     color:#fff;
     font-size: 50px;
     background-color: rgba(0, 0, 0, 0.80) ;
+}
+div.picleft {
+    float: left;
+}
+div.highlights {
+    
+}
+div#gallery {
+    clear: both;
 }
 body {
   height: 100%;
@@ -109,6 +121,9 @@ body {
 .cover .btn-lg {
   padding: 10px 20px;
   font-weight: bold;
+}
+p {
+    font-family: Verdana;
 }
 
 

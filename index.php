@@ -1,7 +1,13 @@
+<?php
+    include 'kesha/session.php';
+    
+    
+    
+?>
 <!DOCTYPE html>
 <head>
     <title>AJ Sports Club Spinning</title>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="description" content="AJ SPORTS CLUB OFFICAL PAGE">
     <meta name="author" content="Radislav Splichal">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
@@ -28,17 +34,23 @@
             <!-- The Logo and the Header Image-->
             <?php include 'header.html'; ?>
         </header>
-        <section>
-
     </div>
-    <article>
-        <!-- The Page content and its SQL logic-->
-        <?php include 'article.html'; ?>
-
-    </article>
+    <section>
 
 
-        </section>
+        <article>
+            <!-- The Page content and its SQL logic-->
+            <?php
+                
+                include 'content/section.html'
+                
+            ?>
+
+
+        </article>
+
+
+    </section>
     <footer>
         <p>Aj Sports Club 2015 © / Kesha Engine / Bootstrap CSS&JS / Build 0004 /</p>
 
