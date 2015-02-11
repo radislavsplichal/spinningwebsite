@@ -52,7 +52,7 @@
 
     </section>
     <footer>
-        <p>Aj Sports Club 2015 © / Kesha Engine / Bootstrap CSS&JS / Build 0004 /</p>
+        <p>Aj Sports Club 2015 © / Kesha Engine / Bootstrap CSS&JS / Build 0005 /</p>
 
 
 
