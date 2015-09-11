@@ -1,4 +1,5 @@
 <?php
+    // Sessions
     include 'kesha/session.php';
     
     
@@ -13,6 +14,14 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 </head>
 <body>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
     <!-- Additional Style Information -->
     <style>
         <?php include 'style.css'; ?>
@@ -42,7 +51,7 @@
             <!-- The Page content and its SQL logic-->
             <?php
                 
-                include 'content/section.html'
+                include 'content/section.php'
                 
             ?>
 
@@ -64,9 +73,5 @@
 
 <?php
     
-    /* 
-     * To change this license header, choose License Headers in Project Properties.
-     * To change this template file, choose Tools | Templates
-     * and open the template in the editor.
-     */
+    
     
