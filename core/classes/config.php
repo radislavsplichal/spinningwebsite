@@ -1,7 +1,7 @@
 <?php
 //configure this file to connenct to the database
-$servername = "localhost";
-$username = "test";
+$servername = "192.168.0.123:3306";
+$username = "ajsports";
 $password = "dev";
-$dbname = "test";
+$dbname = "AJSPORTS";
 ?>

@@ -23,11 +23,11 @@ class DatabaseHandler {
 			$result = $this->conn->query($sql);
 			echo "Success!";
 			$response = ['OK'];
-			return $responseArray = $arrayName = array('responseMessage' => $respose,'responseContent' => $result);
+			return $responseArray = $arrayName = array('responseMessage' => $response,'responseContent' => $result);
 		} else {
 			// throw new Exception('SQL Querry Error'.$sql.$this->conn->error);
 			$response = ['Connection Error',$this->conn->error];
-			return $response;
+			return $result = $this->conn->query($sql);
 		}
 	}
 	public function createObject($type,$objectName,$arguments) {
@@ -58,7 +58,8 @@ class DatabaseHandler {
 	public function readObject($sql){
 		$this->establishConnection();
 		echo $sql;
-		$this->executeQuerry($sql);
+		$response = $this->executeQuerry($sql);
+		return $response;
 	}
 
 }
