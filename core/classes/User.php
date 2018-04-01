@@ -16,7 +16,7 @@ class User {
       // echo $hash = password_hash("dev", PASSWORD_BCRYPT);
       // thislogin method is vunreable to SQL injection
       // investigate:http://piotrpasich.com/how-to-hack-the-form-sql-injection/
-      // $stmt = $db->prepare(‘update users set parameter = ? where id = ?’);<br>$stmt->bind_param(‘si’,$name,$id);<br>$stmt->execute();
+      // $stmt = $db->prepare(ï¿½update users set parameter = ? where id = ?ï¿½);<br>$stmt->bind_param(ï¿½siï¿½,$name,$id);<br>$stmt->execute();
       
       
       
@@ -61,10 +61,36 @@ class User {
         
 
     }
+    private function getFK_id(){
+        $bot = new DatabaseHandler;
+        $sql = "SELECT count(*) FROM accounts";
+        $number = $bot->readObject($sql);
+        return $number;
+    }
+    private function createAccount($number){
+        $bot = new DatabaseHandler;
+        $type = "accounts";
+        $arguments = "'acc_no','balance'";
+        $values = $number."','"."100";
+        $result = $bot->saveObject($type,$arguments,$values);
+    }
 
-
-    public function createUser($userName, $password, $firstName, $lastName, $rights) {
-
+    public function createUser($cus_name,$cus_surname,$cus_email,$cus_password,$cus_username) {
+        $cus_phone = "123 456 789";
+        $password = password_hash($cus_password, PASSWORD_BCRYPT);
+        $bot = new DatabaseHandler;
+        $type = "customers";
+        $arguments = "'cus_name','cus_surname','cus_username','cus_pass','cus_email','FK_account_id'";
+        
+        
+        $number = ($this->getFK_id());
+        echo print_r($number);
+        
+        $resultA = $this->createAccount($number);
+        $FK_account_id = $number;
+        
+        $values = $cus_name."','".$cus_surname."','".$cus_email."','".$cus_username."','".$password."','".$cus_phone."','".$FK_account_id;
+        $result = $bot->saveObject($type,$arguments,$values);
     }
     public function editUser() {
 

@@ -1,7 +1,7 @@
 <?php
 include '../classes/loadComponents.php';
 
-echo "Login.php";
+
 
 //session_start();
 if (isset($_POST["username"],$_POST["password"])){

@@ -27,7 +27,8 @@ class DatabaseHandler {
 		} else {
 			// throw new Exception('SQL Querry Error'.$sql.$this->conn->error);
 			$response = ['Connection Error',$this->conn->error];
-			return $result = $this->conn->query($sql);
+			$result = $this->conn->query($sql);
+			return $responseArray = $arrayName = array('responseMessage' => $response,'responseContent' => $result);
 		}
 	}
 	public function createObject($type,$objectName,$arguments) {

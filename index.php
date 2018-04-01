@@ -55,13 +55,13 @@ $_SESSION['username'] = 'Anonymous';
 
                     <div class="collapse navbar-collapse nav-collapse">
 
-					<!-- <div class="language-switcher">
-					  <ul class="nav-lang">
-              <li><a class="active" href="#">CZ</a></li>
-					    <li><a href="#">EN</a></li>
-						  <li><a href="#">DE</a></li>
-					  </ul>
-					</div> -->
+    					<div class="language-switcher">
+    					  <ul class="nav-lang">
+                  			<li><a class="active" href="#">CZ</a></li>
+    					    <li><a href="#">EN</a></li>
+    						<li><a href="#">DE</a></li>
+    					  </ul>
+    					</div> 
 
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-right">
@@ -100,7 +100,7 @@ $_SESSION['username'] = 'Anonymous';
                                       <div class="panel panel-default">
                                           <div class="panel-heading" role="tab" id="headingOne">
                                               <h4 class="panel-title">
-                                                  <a href="templates/login/index.html" class="panel-title-child" role="button"  aria-expanded="true" aria-controls="collapseOne">
+                                                  <a href="templates/loginRegistration/index.php" class="panel-title-child" role="button"  aria-expanded="true" aria-controls="collapseOne">
                                                     Přihlásit se
                                                   </a>
                                               </h4>
