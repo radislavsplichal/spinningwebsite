@@ -1,7 +1,7 @@
 <?php 
 session_start();
 $_SESSION['username'] = 'Anonymous';
-
+$_SESSION['status'] = 'idle';
 ?>
 
 

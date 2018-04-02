@@ -11,6 +11,7 @@ class User {
       $sql = "SELECT * FROM customers WHERE cus_username = '$userName' OR cus_email = '$userName'";
       
       $result = $bot->readObject($sql);
+      //echo print_r($result);
       
       // The password in the database needs to be a hashed string, plain text is not allowed.
       // echo $hash = password_hash("dev", PASSWORD_BCRYPT);
@@ -20,43 +21,50 @@ class User {
       
       
       
-      if ($result->num_rows > 0){
+      if ($result['responseContent']->num_rows > 0){
          
-        while ($row = $result->fetch_assoc()) {
+          while ($row = $result['responseContent']->fetch_assoc()) {
             
                 if(($userName == $row["cus_username"]  || $userName == $row["cus_email"]) && password_verify($password,$row["cus_pass"])){
               
               $_SESSION['valid'] = true;
               $_SESSION['timeout'] = time();
               $_SESSION['username'] = $userName;
-    
+              $_SESSION['status'] = 'good';
               echo 'You have entered valid user name and password';
               $response=TRUE;
               break;
               } else {
               $response=FALSE;
               }
-        
+             
         
         
         if ($response == FALSE) {
           //bad input
           echo "Username or password dont match our records";
-          $_SESSION['status']='badPswdOrUsr';
+          $_SESSION['status']='bad';
+          header("Location:"."../../templates/loginRegistration/index.php");
+          exit();
         }
-
+        
       }
-     
+      header("Location:"."../index.php");
+      exit();
       } elseif ($result->num_rows == 0){
           //there are no such users in the database
           echo "Username or password dont match our records. No such user";
-          $_SESSION['status']='badPswdOrUsr';
+          $_SESSION['status']='bad';
+          header("Location:"."../../templates/loginRegistration/index.php");
+          exit();
           
       } else {
           //There is another error
-          
+          echo $result['responseMessage'];
           echo "Ops. There is something wrong with the database!";
-          $_SESSION['status']='dbNotConn';
+          $_SESSION['status']='error';
+          header("Location:"."../../templates/loginRegistration/index.php");
+          exit();
       }
         
 

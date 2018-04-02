@@ -1,3 +1,4 @@
+<?php session_start();?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -6,6 +7,23 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script>
+<script>
+$(document).ready(function(){
+	var status = <?php echo json_encode($_SESSION['status']) ?>;
+	console.log(status);
+	switch (status) {
+		case "good":
+			break;
+		case "idle": 
+			$( "#loginResponse" ).hide();
+			break;
+		case "bad":
+			$( "#loginResponse" ).visible();
+			break;
+	}
+ 
+});
+</script>
 <div class="container">
    <div class="row">
     <div class="col-md-6 col-md-offset-3">
@@ -15,6 +33,9 @@
             <div class="col-lg-12">
               <form id="login-form" action="../../core/operations/login.php" method="post" role="form" style="display: block;">
                 <h2>LOGIN</h2>
+                    <div id="loginResponse" class="alert alert-danger" role="alert">
+      					Vaše jméno nebo heslo jsou nesprávné!
+    				</div>
                   <div class="form-group">
                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                   </div>
@@ -38,13 +59,13 @@
                     <input type="text" name="surname" id="surname" tabindex="1" class="form-control" placeholder="Surname" value="">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                    <input type="text" name="username" id="Rusername" tabindex="1" class="form-control" placeholder="Username" value="">
                   </div>
                   <div class="form-group">
                     <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
                   </div>
                   <div class="form-group">
-                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                    <input type="password" name="password" id="Rpassword" tabindex="2" class="form-control" placeholder="Password">
                   </div>
                   <div class="form-group">
                     <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
