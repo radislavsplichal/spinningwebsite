@@ -1,6 +1,6 @@
 <?php
 // This class handles the users and login functionality
-class User {
+class User extends CMSObject {
     public $rights;
     public $firstName;
     public $lastName;
@@ -71,13 +71,13 @@ class User {
     }
     private function getFK_id(){
         $bot = new DatabaseHandler;
-        $sql = "SELECT count(*) FROM accounts";
+        $sql = "SELECT count(*) FROM ACCOUNTS";
         $number = $bot->readObject($sql);
         return $number;
     }
     private function createAccount($number){
         $bot = new DatabaseHandler;
-        $type = "accounts";
+        $type = "ACCOUNTS";
         $arguments = "'acc_no','balance'";
         $values = $number."','"."100";
         $result = $bot->saveObject($type,$arguments,$values);
@@ -87,7 +87,7 @@ class User {
         $cus_phone = "123 456 789";
         $password = password_hash($cus_password, PASSWORD_BCRYPT);
         $bot = new DatabaseHandler;
-        $type = "customers";
+        $type = "CUSTOMERS";
         $arguments = "'cus_name','cus_surname','cus_username','cus_pass','cus_email','FK_account_id'";
         
         
