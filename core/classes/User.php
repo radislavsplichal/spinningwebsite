@@ -1,6 +1,6 @@
 <?php
 // This class handles the users and login functionality
-
+//test
 namespace CMSCore;
 class User extends CMSObject {
     public $rights;
