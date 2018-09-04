@@ -1,14 +1,14 @@
 <?php
 namespace CMSCore;
-interface DatabaseHander{
-	private $conn;
+interface DatabaseHandler{
+	
 	function establishConnection();
-	private function executeQuerry($sql);
-	public function createObject($type,$objectName,$arguments);
-	public function saveObject ($type,$arguments,$values);
-	public function deleteObject($id,$type);
-	public function editObject($id,$type,$arguments,$values);
-	public function readObject($sql);
+	function executeQuerry($sql);
+	function createObject($type,$objectName,$arguments);
+	function saveObject ($type,$arguments,$values);
+	function deleteObject($id,$type);
+	function editObject($id,$type,$arguments,$values);
+	function readObject($sql);
 
 }
 ?>

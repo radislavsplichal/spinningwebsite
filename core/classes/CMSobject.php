@@ -1,8 +1,9 @@
 <?php
 namespace CMSCore;
+include_once 'DatabaseHandler.php';
 class CMSObject implements DatabaseHandler{
-	private $conn;
-	private function establishConnection(){
+	public $conn;
+	public function establishConnection(){
 		// configuration of the database
 		include 'config.php';
 		// Create connection
@@ -14,7 +15,7 @@ class CMSObject implements DatabaseHandler{
 			throw new Exception('SQL Connection Error'.$sql.$this->$conn->error);
 		}
 	}
-	private function executeQuerry($sql){
+	public function executeQuerry($sql){
 		if ($this->conn->query($sql) === TRUE){
 			$result = $this->conn->query($sql);
 			echo "Success!";

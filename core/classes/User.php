@@ -1,5 +1,7 @@
 <?php
 // This class handles the users and login functionality
+
+namespace CMSCore;
 class User extends CMSObject {
     public $rights;
     public $firstName;
@@ -7,10 +9,10 @@ class User extends CMSObject {
     
 // Function Verifies Login from login.php and sets the $_SESSION['username']  acordingly
     public function login($userName, $password){
-      $bot = new DatabaseHandler;
+      
       $sql = "SELECT * FROM customers WHERE cus_username = '$userName' OR cus_email = '$userName'";
       
-      $result = $bot->readObject($sql);
+      $result = $this->readObject($sql);
       //echo print_r($result);
       
       // The password in the database needs to be a hashed string, plain text is not allowed.
@@ -70,23 +72,23 @@ class User extends CMSObject {
 
     }
     private function getFK_id(){
-        $bot = new DatabaseHandler;
+        
         $sql = "SELECT count(*) FROM ACCOUNTS";
-        $number = $bot->readObject($sql);
+        $number = $this->readObject($sql);
         return $number;
     }
     private function createAccount($number){
-        $bot = new DatabaseHandler;
+        
         $type = "ACCOUNTS";
         $arguments = "'acc_no','balance'";
         $values = $number."','"."100";
-        $result = $bot->saveObject($type,$arguments,$values);
+        $result = $this->saveObject($type,$arguments,$values);
     }
 
     public function createUser($cus_name,$cus_surname,$cus_email,$cus_password,$cus_username) {
         $cus_phone = "123 456 789";
         $password = password_hash($cus_password, PASSWORD_BCRYPT);
-        $bot = new DatabaseHandler;
+        
         $type = "CUSTOMERS";
         $arguments = "'cus_name','cus_surname','cus_username','cus_pass','cus_email','FK_account_id'";
         
@@ -98,7 +100,7 @@ class User extends CMSObject {
         $FK_account_id = $number;
         
         $values = $cus_name."','".$cus_surname."','".$cus_email."','".$cus_username."','".$password."','".$cus_phone."','".$FK_account_id;
-        $result = $bot->saveObject($type,$arguments,$values);
+        $result = $this->saveObject($type,$arguments,$values);
     }
     public function editUser() {
 

@@ -2,6 +2,8 @@
 session_start();
 $_SESSION['username'] = 'Anonymous';
 $_SESSION['status'] = 'idle';
+
+include '../classes/loadComponents.php';
 ?>
 
 
