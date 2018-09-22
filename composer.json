@@ -1,12 +1,10 @@
 {
-    "require": {
-    },
-    "require-dev": {
-        "phpunit/phpunit": "*"
-    },
-    "autoload": {
-        "psr-0": {
-            "stats": ""
-        }
-    }
+	"require-dev" : {
+		"phpunit/phpunit" : "*"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"stats" : ""
+		}
+	}
 }
