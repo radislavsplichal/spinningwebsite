@@ -10,7 +10,7 @@ class User extends CMSObject {
 // Function Verifies Login from login.php and sets the $_SESSION['username']  acordingly
     public function login($userName, $password){
       
-      $sql = "SELECT * FROM customers WHERE cus_username = '$userName' OR cus_email = '$userName'";
+      $sql = "SELECT * FROM CUSTOMERS WHERE cus_username = '$userName' OR cus_email = '$userName'";
       
       $result = $this->readObject($sql);
       //echo print_r($result);
@@ -46,7 +46,7 @@ class User extends CMSObject {
           //bad input
           echo "Username or password dont match our records";
           $_SESSION['status']='bad';
-          header("Location:"."../../templates/loginRegistration/index.php");
+          //header("Location:"."../../templates/loginRegistration/index.php");
           exit();
         }
         
@@ -57,7 +57,7 @@ class User extends CMSObject {
           //there are no such users in the database
           echo "Username or password dont match our records. No such user";
           $_SESSION['status']='bad';
-          header("Location:"."../../templates/loginRegistration/index.php");
+          //header("Location:"."../../templates/loginRegistration/index.php");
           exit();
           
       } else {
@@ -65,7 +65,7 @@ class User extends CMSObject {
           echo $result['responseMessage'];
           echo "Ops. There is something wrong with the database!";
           $_SESSION['status']='error';
-          header("Location:"."../../templates/loginRegistration/index.php");
+          //header("Location:"."../../templates/loginRegistration/index.php");
           exit();
       }
         
@@ -73,16 +73,19 @@ class User extends CMSObject {
     }
     private function getFK_id(){
         
-        $sql = "SELECT count(*) FROM ACCOUNTS";
-        $number = $this->readObject($sql);
-        return $number;
+        $sql = "SELECT COUNT(*) FROM ACCOUNTS";
+        $result = $this->readObject($sql);
+        $row = $result['responseContent']->fetch_array(MYSQLI_NUM);
+        print_r ($row[0]);
+        return $row[0];
     }
     private function createAccount($number){
         
         $type = "ACCOUNTS";
-        $arguments = "'acc_no','balance'";
-        $values = $number."','"."100";
-        $result = $this->saveObject($type,$arguments,$values);
+        //$arguments = "'acc_no','balance'";
+        $values = ++$number."','"."100";
+        $result = $this->saveObject($type,$values);
+        print_r($result);
     }
 
     public function createUser($cus_name,$cus_surname,$cus_email,$cus_password,$cus_username) {
@@ -90,17 +93,20 @@ class User extends CMSObject {
         $password = password_hash($cus_password, PASSWORD_BCRYPT);
         
         $type = "CUSTOMERS";
-        $arguments = "'cus_name','cus_surname','cus_username','cus_pass','cus_email','FK_account_id'";
-        
+        //$arguments = "'cus_name','cus_surname','cus_username','cus_pass','cus_email','FK_account_id'";
         
         $number = ($this->getFK_id());
-        echo print_r($number);
+        //echo print_r($number);
         
         $resultA = $this->createAccount($number);
-        $FK_account_id = $number;
+        $FK_account_id = $number+1;
         
-        $values = $cus_name."','".$cus_surname."','".$cus_email."','".$cus_username."','".$password."','".$cus_phone."','".$FK_account_id;
-        $result = $this->saveObject($type,$arguments,$values);
+        //Customer id is always 0, the field is AutoIncremented.
+        $values = '0'."','".$cus_name."','".$cus_surname."','".$cus_username."','".$password."','".$cus_phone."','".$cus_email."','".$FK_account_id;
+        $result = $this->saveObject($type,$values);
+        //print_r($result['responseMessage']);
+        
+        return $result['responseMessage'];
     }
     public function editUser() {
 

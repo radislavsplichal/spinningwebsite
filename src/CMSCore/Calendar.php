@@ -89,7 +89,7 @@ class Calendar {
             //$content.='<div class="clear"></div>';
             
             $content.='</main>';
-            $content.= include('classes/sidebar.php');
+            $content.= include('sidebar.php');
             $content.='</div></div>';
             return $content;
     }

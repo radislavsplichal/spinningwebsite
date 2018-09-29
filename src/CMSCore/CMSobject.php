@@ -1,5 +1,6 @@
 <?php
 namespace CMSCore;
+use mysqli;
 include_once 'DatabaseHandler.php';
 class CMSObject implements DatabaseHandler{
 	public $conn;
@@ -16,7 +17,7 @@ class CMSObject implements DatabaseHandler{
 		}
 	}
 	public function executeQuerry($sql){
-		if ($this->conn->query($sql) === TRUE){
+		if ($this->conn->query($sql) == TRUE){
 			$result = $this->conn->query($sql);
 			echo "Success!";
 			$response = ['OK'];
@@ -32,14 +33,15 @@ class CMSObject implements DatabaseHandler{
 		$this->establishConnection();
 		// values need to be separated by "','" and concatanated by .
 		$sql= "CREATE $type $objectName ($arguments);";
-		echo $sql;
+		echo $sql.'</br>';
 		$this->executeQuerry($sql);
 	}
-	public function saveObject ($type,$arguments,$values) {
+	public function saveObject ($type,$values) {
 		$this->establishConnection();
 		// values need to be separated by "','" and concatanated by .
-		$sql= "INSERT INTO $type ($arguments) VALUES ('$values');";
-		$this->executeQuerry($sql);
+		$sql= "INSERT INTO $type VALUES ('$values');";
+		echo $sql;
+		return $response = $this->executeQuerry($sql);
 	}
 	public function deleteObject($id,$type){
 		$this->establishConnection();
@@ -55,7 +57,7 @@ class CMSObject implements DatabaseHandler{
 	}
 	public function readObject($sql){
 		$this->establishConnection();
-		echo $sql;
+		//echo $sql;
 		$response = $this->executeQuerry($sql);
 		return $response;
 	}

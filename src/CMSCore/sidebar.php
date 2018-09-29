@@ -1,6 +1,6 @@
 
 <?php
-namespace CMSCore;
+
 ?>
 <sidebar>
 <div class="logo">logo</div>

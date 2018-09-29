@@ -1,12 +1,11 @@
 <?php
 
 // This is the gateway for the reservation
-/*
-foreach (glob("classes/*.php") as $filename)
-{
-    include $filename;
-}
-*/
+use CMSCore\Calendar;
+//Class Autoloader
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/vendor/autoload.php";
+require($path);
 session_start();
 //echo $_SESSION['username'];
 ?>
@@ -16,7 +15,7 @@ session_start();
 <content>
 <div class="wrapper">
 <?php
-include 'classes/Calendar.php';
+//include 'classes/Calendar.php';
 
 $calendar = new Calendar();
 

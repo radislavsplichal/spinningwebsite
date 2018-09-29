@@ -18,6 +18,11 @@ case '404':
 case 'blin':
   echo "Boris";
   break;
+case 'UserCreationSuccess':
+  echo '<div class="alert alert-success navbar-form navbar-left">
+        <strong>Super!</strong> Nový uživatel byl vytvořen!
+        </div>';
+  break;
 
 }
 

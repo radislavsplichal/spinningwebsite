@@ -1,7 +1,8 @@
 <?php session_start();?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -9,7 +10,7 @@
 <script src="script.js"></script>
 <script>
 $(document).ready(function(){
-	var status = <?php echo json_encode($_SESSION['status']) ?>;
+	var status = json_encode($_SESSION['status']);
 	console.log(status);
 	switch (status) {
 		case "good":
@@ -31,7 +32,7 @@ $(document).ready(function(){
         <div class="panel-body">
           <div class="row">
             <div class="col-lg-12">
-              <form id="login-form" action="../../core/operations/login.php" method="post" role="form" style="display: block;">
+              <form id="login-form" action="/core/operations/login.php" method="post" role="form" style="display: block;">
                 <h2>LOGIN</h2>
                     <div id="loginResponse" class="alert alert-danger" role="alert">
       					Vaše jméno nebo heslo jsou nesprávné!
