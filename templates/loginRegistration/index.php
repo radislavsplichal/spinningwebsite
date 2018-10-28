@@ -54,22 +54,26 @@ $(document).ready(function(){
               <form id="register-form" action="../../core/operations/register.php" method="post" role="form" style="display: none;">
                 <h2>REGISTER</h2>
                   <div class="form-group">
-                    <input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Name" value="">
+                    <input autofocus required type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Name" value="" maxlength="30">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="surname" id="surname" tabindex="1" class="form-control" placeholder="Surname" value="">
+                    <input required type="text" name="surname" id="surname" tabindex="1" class="form-control" placeholder="Surname" value="" maxlength="30">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="username" id="Rusername" tabindex="1" class="form-control" placeholder="Username" value="">
+                    <input required type="text" name="username" id="Rusername" tabindex="1" class="form-control" placeholder="Username" value="" maxlength="50">
                   </div>
                   <div class="form-group">
-                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                    <input required type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
                   </div>
                   <div class="form-group">
-                    <input type="password" name="password" id="Rpassword" tabindex="2" class="form-control" placeholder="Password">
+                    <input type="text" name="phone" id="phone" tabindex="1" class="form-control" placeholder="Phone" value="+420" maxlength="13">
                   </div>
                   <div class="form-group">
-                    <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                    <input required type="password" name="password" id="Rpassword" tabindex="2" class="form-control" placeholder="Password" maxlength="100">
+                  </div>
+<!--                   To be replaced -->
+                  <div class="form-group">
+                    <input required type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" maxlength="100">
                   </div>
                   <div class="form-group">
                     <div class="row">
