@@ -29,6 +29,9 @@ class Calendar {
     
     private $naviHref= null;
     
+    private $cellUI = '<i class="fas fa-plus"></i>';
+
+    
     /********************* PUBLIC **********************/
     
     /**
