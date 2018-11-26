@@ -41,12 +41,16 @@ $calendar = new Calendar();
 echo $calendar->show();
 ?>
 
-<form id="form1" action="operations/createEvent.php"> <b>Title</b> <input type="text" name="title"> <br><br> <b>Description </b><input type="text" name="description"> <br><br>
+		<form id="newEvent" action="operations/createEvent.php"> 
+		
+		<b>Lesson Name</b> <input type="text" name="LessonName"> <br>
+		
 		  <b> Capacity</b>
-		  	</b><input type="number" name="capacity">
-		  <b>Preferred Color:</b>
+		  	<input type="number" name="capacity">
+		  <b>Price</b>
 		  <select name="price">
-		    <option value="90">90</option>
+		    <!-- To be added from the database -->
+		    <option value="90">90</option> 
 		    <option value="150">150</option>
 		  </select>
 		    <br><br>
@@ -57,7 +61,6 @@ echo $calendar->show();
 		  </textarea>
 		    <br><br>
 		  <button type="button" id="submit">Submit</button>
-		  </form>
 		</form>
 
 

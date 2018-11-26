@@ -3,8 +3,8 @@ $(document).ready(function(){
   
 	
 	
-	    var newEventForm = document.getElementById("form1");
-	    console.log(newEventForm);
+	    var newEventForm = document.getElementById("newEvent");
+	    //console.log(newEventForm);
 	
 		//$("#form1").hide();
 	
@@ -18,7 +18,9 @@ $(document).ready(function(){
 		
 		
 		//events
-		$(".calendar__day").click(function(){
+		$(".calendar__day").click(function(e){
+			if (e.target !== this)
+			    return;
 			$(this).prepend(newEventForm);
 			//$("#form1").toggle(); 
 		});
