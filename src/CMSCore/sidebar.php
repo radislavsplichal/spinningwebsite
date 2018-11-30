@@ -23,7 +23,7 @@
 <i class="menu__icon fa fa-list"></i>
 <span class="menu__text">workout</span>
 </a>
-<a class="menu__item menu__item--active" href="#">
+<a id='calendarLink' class="menu__item menu__item--active" href="#">
 <i class="menu__icon fa fa-calendar"></i>
 <span class="menu__text">calendar</span>
 </a>
@@ -38,6 +38,10 @@
 <a class="menu__item" href="#">
 <i class="menu__icon fa fa-sliders"></i>
 <span class="menu__text">measurements</span>
+</a>
+<a id='instructor'class="menu__item" href="#">
+<i class="menu__icon fa fa-user"></i>
+<span class="menu__text">Instructors</span>
 </a>
 </nav>
 <div class="copyright">copyright &copy; 2018</div>

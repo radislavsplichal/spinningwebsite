@@ -63,7 +63,15 @@ echo $calendar->show();
 		  <button type="button" id="submit">Submit</button>
 		</form>
 
-
+		<section id="instructorPage">
+    		<form id="newInstructor">
+    			<input type="text" name="name">
+    			<input type="text" name="surname">
+    			<textarea name="bio">
+    		    Enter your bio here
+    		    </textarea>
+    		</form>
+		</section>
 
 
 
