@@ -64,12 +64,13 @@ echo $calendar->show();
 		</form>
 
 		<section id="instructorPage">
-    		<form id="newInstructor">
-    			<input type="text" name="name">
-    			<input type="text" name="surname">
-    			<textarea name="bio">
-    		    Enter your bio here
+    		<form id="instructor-content" action="operations/saveInstructor.php">
+    			<input id="ins-name" type="text" name="name">
+    			<input id="ins-surname" type="text" name="surname">
+    			<textarea id="ins-bio" name="bio">
+    		    	Enter your bio here
     		    </textarea>
+    		    <button type="submit"></button> 
     		</form>
 		</section>
 
