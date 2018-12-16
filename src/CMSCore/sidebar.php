@@ -23,7 +23,7 @@
 <i class="menu__icon fa fa-list"></i>
 <span class="menu__text">workout</span>
 </a>
-<a id='calendarLink' class="menu__item menu__item--active" href="#">
+<a id='calendar' class="menu__item menu__item--active" href="#">
 <i class="menu__icon fa fa-calendar"></i>
 <span class="menu__text">calendar</span>
 </a>

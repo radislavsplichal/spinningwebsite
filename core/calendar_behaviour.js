@@ -6,7 +6,10 @@ $(document).ready(function(){
 				a = a.concat('-content');
 				console.log(a);
 				$('main').empty();
-				var content = document.getElementById(a);
+				
+				var content = $.get('content/'.a.concat('.php'));
+				
+				
 				console.log(content);
 				$('main').append(content);
 		});

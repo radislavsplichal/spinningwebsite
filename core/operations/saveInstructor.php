@@ -15,5 +15,5 @@ $instructor->name = $_POST['name'];
 $instructor->surname = $_POST['surname'];
 $instructor->bio = $_POST['bio'];
 
-$instructorFormResult = $instructor->saveInstructor();
+echo $instructorFormResult = $instructor->saveInstructor();
 ?>
