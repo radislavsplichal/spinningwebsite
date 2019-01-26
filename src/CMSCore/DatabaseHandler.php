@@ -9,6 +9,7 @@ interface DatabaseHandler{
 	function deleteObject($id,$type);
 	function editObject($id,$type,$arguments,$values);
 	function readObject($sql);
+	function sanitizeInputs($values);
 
 }
 ?>

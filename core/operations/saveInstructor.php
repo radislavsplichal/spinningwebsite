@@ -5,15 +5,12 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/vendor/autoload.php";
 require($path);
 
-$instructor = new Instructor();
+$instructor = new Instructor($_POST['name'],$_POST['surname'],$_POST['bio']);
 
 echo ($_POST['name']);
 echo ($_POST['surname']);
 echo ($_POST['bio']);
 
-$instructor->name = $_POST['name'];
-$instructor->surname = $_POST['surname'];
-$instructor->bio = $_POST['bio'];
-
-echo $instructorFormResult = $instructor->saveInstructor();
+$instructorFormResult = $instructor->saveInstructor();
+print_r($instructorFormResult);
 ?>

@@ -17,8 +17,8 @@ class CMSObject implements DatabaseHandler{
 		}
 	}
 	public function executeQuerry($sql){
-		if ($this->conn->query($sql) == TRUE){
-			$result = $this->conn->query($sql);
+	    if ($result = $this->conn->query($sql) == TRUE){
+			//$result = $this->conn->query($sql);
 			echo "Success!";
 			$response = ['OK'];
 			return $responseArray = $arrayName = array('responseMessage' => $response,'responseContent' => $result);
@@ -38,6 +38,8 @@ class CMSObject implements DatabaseHandler{
 	}
 	public function saveObject ($type,$values) {
 		$this->establishConnection();
+		
+		
 		// values need to be separated by "','" and concatanated by .
 		$sql= "INSERT INTO $type VALUES ('$values');";
 		echo $sql;
@@ -60,6 +62,14 @@ class CMSObject implements DatabaseHandler{
 		//echo $sql;
 		$response = $this->executeQuerry($sql);
 		return $response;
+	}
+	public function sanitizeInputs($values) {
+	    return null;
+	}
+	private function prepareValues($values) {
+	    foreach ($values as $key => $value) {
+	        $this->prepare("INSERT INTO $type VALUES ('$values');");
+	    }
 	}
 
 }

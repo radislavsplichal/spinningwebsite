@@ -6,6 +6,12 @@ class Instructor extends CMSObject {
      public $surname = "";
      public $bio = "";
      
+     function __construct($name, $surname, $bio) {
+         $this->name = $name;
+         $this->surname = $surname;
+         $this->bio = $bio;
+     }
+     
      public function saveInstructor(){
      
      $type = "INSTRUCTORS";

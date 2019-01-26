@@ -7,11 +7,10 @@ $(document).ready(function(){
 				console.log(a);
 				$('main').empty();
 				
-				var content = $.get('content/'.a.concat('.php'));
-				
-				
-				console.log(content);
-				$('main').append(content);
+				var content = $.get("content/"+a+".php", function(data){
+					console.log(data);
+					$('main').append(data);
+				});	
 		});
 	
 	
@@ -40,23 +39,23 @@ $(document).ready(function(){
 		//AJAX calls
 		
 		 /* attach a submit handler to the form */
-	    $("#instructor-content").submit(function(event) {
-
-	      /* stop form from submitting normally */
-	      event.preventDefault();
-
-	      /* get the action attribute from the <form action=""> element */
-	      var $form = $( this ),
-	          url = $form.attr( 'action' );
-
-	      /* Send the data using post with element id name and name2*/
-	      var posting = $.post( url, { name: $('#ins-name').val(), surname: $('#ins-surname').val(), bio: $('#ins-bio').val() } );
-
-	      /* Alerts the results */
-	      posting.done(function( data ) {
-	        alert('success');
-	      });
-	    });
+//	    $('#instructor-content').submit(function(event) {
+//
+//	      /* stop form from submitting normally */
+//	      event.preventDefault();
+//
+//	      /* get the action attribute from the <form action=""> element */
+//	      var $form = $( this ),
+//	          url = $form.attr( 'action' );
+//
+//	      /* Send the data using post with element id name and name2*/
+//	      var posting = $.post( url, { name: $('#ins-name').val(), surname: $('#ins-surname').val(), bio: $('#ins-bio').val() } );
+//
+//	      /* Alerts the results */
+//	      posting.done(function( data ) {
+//	        alert('success');
+//	      });
+//	    });
 	    
 	    
 	    
