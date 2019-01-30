@@ -17,16 +17,22 @@ class CMSObject implements DatabaseHandler{
 		}
 	}
 	public function executeQuerry($sql){
-	    if ($result = $this->conn->query($sql) == TRUE){
+	    $result = $this->conn->query($sql);
+	    if ($result == TRUE){
 			//$result = $this->conn->query($sql);
 			echo "Success!";
-			$response = ['OK'];
-			return $responseArray = $arrayName = array('responseMessage' => $response,'responseContent' => $result);
+			$response = 'OK';
+			$this->conn->close();
+			//$conn.close();
+		    $responseArray = array("responseMessage" => $response,"responseContent" => $result);
+			return $responseArray;
 		} else {
 			// throw new Exception('SQL Querry Error'.$sql.$this->conn->error);
 			$response = ['Connection Error',$this->conn->error];
 			$result = $this->conn->query($sql);
-			return $responseArray = $arrayName = array('responseMessage' => $response,'responseContent' => $result);
+			$this->conn->close();
+			//$conn.close();
+			return $responseArray  = array("responseMessage" => $response,"responseContent" => $result);
 		}
 	}
 	public function createObject($type,$objectName,$arguments) {
@@ -37,9 +43,7 @@ class CMSObject implements DatabaseHandler{
 		$this->executeQuerry($sql);
 	}
 	public function saveObject ($type,$values) {
-		$this->establishConnection();
-		
-		
+		$this->establishConnection();		
 		// values need to be separated by "','" and concatanated by .
 		$sql= "INSERT INTO $type VALUES ('$values');";
 		echo $sql;
@@ -60,8 +64,17 @@ class CMSObject implements DatabaseHandler{
 	public function readObject($sql){
 		$this->establishConnection();
 		//echo $sql;
-		$response = $this->executeQuerry($sql);
-		return $response;
+		$resultAll = $this->executeQuerry($sql);
+		$result = $resultAll['responseContent'];
+		$result_array = array();
+		if ($result->num_rows > 0) {
+		    while($row = $result->fetch_assoc()) {
+		        echo $row['cus_username'].$row['cus_pass'];
+		        array_push($result_array, $row);
+		    }
+		}
+		print_r($resultAll);
+		return $result_array;
 	}
 	public function sanitizeInputs($values) {
 	    return null;

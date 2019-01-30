@@ -7,14 +7,45 @@
     			<textarea id="ins-bio" name="bio" placeholder="Enter your bio here..."></textarea>
     		    <button type="submit">Submit</button> 
     		</form>
+    		<button id="fetch-instructor">Fetch</button>
+    		<div id="instructor-database-view">
+    			
+    		
+    		</div>
 </section>
-<<script type="text/javascript">
+<script type="text/javascript">
 <!--
 
 //-->
 
 
 //AJAX calls
+$('#fetch-instructor').on('click', function(){
+	console.log("FIRE!");
+	 $.ajax({
+		    method: "GET", url: "operations/readInstructor.php", 
+		  })
+		  
+		  .done(function( data ) {
+		   var result = $.parseJSON(data);
+		   var string = '<table><tr><th>#</th><th>Name</th><th>Email</th></tr>';
+		  
+		   //from result create a string of data and append to the div
+		   $.each( result, function( key, value ) {
+			     string += "<tr><td>"+value['id'] + "</td><td> " + value['first_name']+' '+value['last_name']+'</td><td> '+ value['ins_bio']+"</td></tr>";
+			    });
+			    string += '</table>';
+			    $("#instructor-database-view").html(string); 
+			
+	})
+			
+})
+
+$('#instructor-database-view')
+
+
+
+
 
 /* attach a submit handler to the form */
 $('#instructor-content').submit(function(e) {
